@@ -17,5 +17,23 @@ export default class ship {
         return this.sunkStatus;
     }
 
+    placeShip(xcord, ycord, orientation){
+        let result;
+        if(orientation=="horizontal"){
+            if((ycord-1) + this.length >9){
+                result = false;
+            }else{
+                result = true;
+            }
+        }else if(orientation=="vertical"){
+            if((xcord-1) + this.length >9){
+                result = false;
+            }else{
+                result = true;
+            }
+        }
+        return result;
+    }
+
 
 }

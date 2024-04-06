@@ -5,9 +5,23 @@
 // INITIALLY populate each Gameboard with predetermined coordinates. 
 // Later implement a system for allowing players to place their ships later.
 // user click on a coordinate in the enemy Gameboard.
-class Gameboard{
-    constructor(){
+export default class Gameboard{
+    constructor(name){
+        this.gameBoard = [];
+        for(let i=1;i<=10;i++){
+            this.gameBoard.push(Array(10).fill("X"));
+        }
+        // console.log(gameBoard);
+    }
 
+    getBoard(){
+        // console.log(this.gameBoard);
+        return this.gameBoard;
+        
+    }
+
+    placeShip(){
+        
     }
 
     receiveAttack(xcord,ycord){        

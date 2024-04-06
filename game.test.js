@@ -41,3 +41,20 @@ test('Ship Test Hits Method', ()=>{
 test('Ship Test isSunk Method', ()=>{
     expect(ship1.isSunk()).toBe(true);
 });
+
+
+test('Ship Test placeShip Method', ()=>{
+    expect(ship1.placeShip(1,1,"horizontal")).toBe(true);
+    expect(ship1.placeShip(1,9,"horizontal")).toBe(false);
+    expect(ship1.placeShip(1,1,"vertical")).toBe(true);
+    expect(ship1.placeShip(9,1,"vertical")).toBe(false);
+});
+
+
+// Test Gameboard 
+// import GameBoard from "./Gameboard.js";
+// const gameBoard1 = new GameBoard();
+
+// test('GameBoard Test 1',()=>{
+//     expect(gameBoard1.getBoard()).toHaveLength(10);
+// });
