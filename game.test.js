@@ -63,6 +63,7 @@ test('Ship Test isSunk Method', ()=>{
 
 // Test Gameboard 
 import GameBoard from "./Gameboard.js";
+// import Gameboard from "./Gameboard.js";
 const gameBoard1 = new GameBoard();
 
 test('GameBoard : CheckFit Method',()=>{
@@ -78,16 +79,26 @@ test('GameBoard: GetCordinatesForShip Method', ()=>{
     expect(gameBoard1.getCordinatesForShip(3,1,1,"vertical")).toStrictEqual([[0,0], [1,0],[2,0]]);
 });
 
-const ship2 = new ship("Destroyer", 3);
+// const ship2 = new ship("Destroyer", 3);
 
 
-test('GameBoard: CordinatesEmpty Method',()=>{
-    // gameBoard1.placeShipOnGameBoard(ship2,1,1,"horizontal");
-    // console.log(gameBoard1.getBoard());
-
-    
+test('GameBoard: CordinatesEmpty Method',()=>{ 
     expect(gameBoard1.cordinatesEmpty([[0,0], [0,1],[0,2]])).toBe(true);
     gameBoard1.gameBoard[0][1].hasShip = true;
     expect(gameBoard1.cordinatesEmpty([[0,0], [0,1],[0,2]])).toBe(false);
 
 });
+
+test('GameBoard: ReceiveAttack Method',()=>{ 
+    // console.log(gameBoard1.gameBoard[0][7]);
+    const gameBoard2 = new GameBoard();
+
+    expect(gameBoard2.receiveAttack([0,7])).toBe(false);
+    gameBoard2.gameBoard[1][1].hasShip = true;
+    gameBoard2.gameBoard[1][1].ship = ship1;
+    expect(gameBoard2.receiveAttack([1,1])).toBe(true);
+    // gameBoard1.gameBoard[0][2].hasShip = true;
+    // expect(gameBoard1.receiveAttack([0,2])).toBe(true);
+
+});
+

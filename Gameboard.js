@@ -8,15 +8,25 @@
 export default class Gameboard{
     constructor(name){
         this.gameBoard = [];
+        this.shipsOnBoard = [];
+        this.setBoard();
+    }
+
+
+    getShipsOnBoard(){
+        return this.shipsOnBoard;
+    }
+
+    setBoard(){
         for(let i=1;i<=10;i++){
             this.gameBoard.push(Array(10).fill({
                 hasShip: false,
-                visited: false,
+                attacked: false,
                 ship: null
             }));
         }
-        // console.log(gameBoard);
     }
+
 
     getBoard(){
         // console.log(this.gameBoard);
@@ -28,9 +38,10 @@ export default class Gameboard{
     placeShipOnGameBoard(shipObj, xcord, ycord, orientation){
         if(this.checkFit(shipObj.length , xcord, ycord, orientation)){
             const shipCordinates = this.getCordinatesForShip();
-            console.log("SETTING VALUES 1");
+            // console.log("SETTING VALUES 1");
             if(this.cordinatesEmpty(shipCordinates)){
-                console.log("SETTING VALUES 2");
+                // console.log("SETTING VALUES 2");
+                this.shipsOnBoard.push(shipObj);
                 shipCordinates.forEach(cord=>{
                     console.log("SETTING VALUES  3");
                     this.gameBoard[cord[0]][cord[1]].hasShip = true;
@@ -98,8 +109,23 @@ export default class Gameboard{
     }
 
 
-    receiveAttack(xcord,ycord){        
-        // Determines whether or not the attack hit a ship and then sends the hit function to the correct ship
+    receiveAttack(cord){
+
+        // Determines whether or not the attack hit a ship 
+        // and then sends the hit function to the correct ship
         // OR records the cordinates of the missed shot
+        const xcord = cord[0];
+        const ycord = cord[1];
+        let attackStatus = false;
+        const attackedSquare = this.gameBoard[xcord][ycord];
+        if( this.gameBoard[xcord][ycord].attacked == false 
+            && this.gameBoard[xcord][ycord].hasShip == true ){
+                this.gameBoard[xcord][ycord].ship.hit();
+            attackStatus = true;
+        }
+
+
+        this.gameBoard[xcord][ycord].attacked = true;
+        return attackStatus;
     }
 }
