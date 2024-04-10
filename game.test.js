@@ -43,23 +43,6 @@ test('Ship Test isSunk Method', ()=>{
 });
 
 
-// test('Ship Test placeShip Method', ()=>{
-//     expect(ship1.placeShip(1,1,"horizontal")).toBe(true);
-//     expect(ship1.placeShip(1,9,"horizontal")).toBe(false);
-//     expect(ship1.placeShip(1,1,"vertical")).toBe(false);
-//     expect(ship1.placeShip(9,1,"vertical")).toBe(false);
-// });
-
-
-// test('Ship Test : Set Cordinates Method', ()=>{
-//     expect(ship1.getCordinates()).toStrictEqual([[0,1], [0,2],[0,3]])
-// });
-
-
-// test('GameBoard Test 1',()=>{
-//     expect(gameBoard1.getBoard()).toHaveLength(10);
-//     expect(gameBoard1.placeShipOnGameBoard(ship1, 1,1,"horizontal")).toBe("false")
-// });
 
 // Test Gameboard 
 import GameBoard from "./Gameboard.js";
@@ -97,8 +80,6 @@ test('GameBoard: ReceiveAttack Method',()=>{
     gameBoard2.gameBoard[1][1].hasShip = true;
     gameBoard2.gameBoard[1][1].ship = ship1;
     expect(gameBoard2.receiveAttack([1,1])).toBe(true);
-    // gameBoard1.gameBoard[0][2].hasShip = true;
-    // expect(gameBoard1.receiveAttack([0,2])).toBe(true);
 
 });
 

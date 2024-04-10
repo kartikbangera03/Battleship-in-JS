@@ -10,20 +10,41 @@ export default class Gameboard{
         this.gameBoard = [];
         this.shipsOnBoard = [];
         this.setBoard();
+        this.printBoard();
     }
 
+    
+    // allShipsSunk(){
+    //     let allShipsSunkStatus = true;
+    //     this.shipsOnBoard.forEach(eachShip=>{
+    //         if(eachShip.isSunk()===false){
+    //             allShipsSunkStatus = false;
+    //         }
+    //     });
 
-    getShipsOnBoard(){
-        return this.shipsOnBoard;
-    }
+    //     return allShipsSunkStatus;
+    // }
+
+
+    // getShipsOnBoard(){
+    //     return this.shipsOnBoard;
+    // }
 
     setBoard(){
-        for(let i=1;i<=10;i++){
-            this.gameBoard.push(Array(10).fill({
-                hasShip: false,
-                attacked: false,
-                ship: null
-            }));
+        for(let i=0;i<=10;i++){
+            this.gameBoard[i] = [];
+            for(let j = 0 ; j <= 10;j++){
+                this.gameBoard[i][j] = {
+                    hasShip: false,
+                    attacked: false,
+                    ship: null
+                };
+            }
+            // this.gameBoard.push(Array(10).fill({
+            //     hasShip: false,
+            //     attacked: false,
+            //     ship: null
+            // }));
         }
     }
 
@@ -35,36 +56,65 @@ export default class Gameboard{
     }
 
 
+    printBoard(){
+        this.gameBoard;
+
+        for(let i=1;i<this.gameBoard.length;i++){
+            let currentRowArray = "";
+            let currentRow  = this.gameBoard[i];
+            for(let j = 1; j < currentRow.length ; j++){
+                let val = currentRow[j].hasShip ? currentRow[j].ship.name : " . ";
+                currentRowArray += val + "  ";
+            }
+            console.table(currentRowArray);
+
+        }
+    }
+
+
     placeShipOnGameBoard(shipObj, xcord, ycord, orientation){
+        let result = false;
+
+        
+        // console.log("CHECK PLACEMENT");
         if(this.checkFit(shipObj.length , xcord, ycord, orientation)){
-            const shipCordinates = this.getCordinatesForShip();
-            // console.log("SETTING VALUES 1");
-            if(this.cordinatesEmpty(shipCordinates)){
-                // console.log("SETTING VALUES 2");
-                this.shipsOnBoard.push(shipObj);
+            const shipCordinates = this.getCordinatesForShip(shipObj.length , xcord, ycord, orientation);
+            console.log(shipCordinates);
+            // console.log("SHIP FIT CHECKED");
+            if(shipCordinates.length!=0 && this.cordinatesEmpty(shipCordinates)){
+                // console.log("SHIP CORDINATES EMPTY");
+                
+                // this.shipsOnBoard.push(shipObj);
                 shipCordinates.forEach(cord=>{
-                    console.log("SETTING VALUES  3");
-                    this.gameBoard[cord[0]][cord[1]].hasShip = true;
-                    this.gameBoard[cord[0]][cord[1]].ship = shipObj;
-                    // console.log(this.gameBoard[cord[0]][cord[1]]);
-                })
+                    // console.log(cord);
+                    const xCord = cord[0];
+                    const yCord = cord[1];
+                    const square = this.gameBoard[xCord][yCord];
+                    // console.log(square);
+                    square.hasShip = true;
+                    square.ship = shipObj;
+                    // console.log(square);
+                });
+                // console.log("CORDINATES SET");
+                result = true;
                 
             }
         }
-
+        // this.printBoard();
+        return result;
         // this.getBoard();
     }
 
 
     checkFit(shipLength, xcord, ycord, orientation){
             let result = false;
-            if(orientation=="horizontal"){
+            if(orientation =="horizontal"){
                 if((ycord-1) + shipLength >9){
                     result = false;
                 }else{   
                     result = true;
                 }
-            }else if(orientation=="vertical"){
+            }else if(orientation =="vertical"){
                 if((xcord-1) + shipLength >9){
                     result = false;
                 }else{
@@ -78,19 +128,18 @@ export default class Gameboard{
 
     getCordinatesForShip(shipLength, xcord, ycord, orientation){
         let cordinates = [];
-        // this.shipPlaced = true;
-        if(orientation=="horizontal"){
+        if(orientation =="horizontal"){
             for(let i=0;i<shipLength;i++){
-                const cords = [xcord-1, ycord+i-1];
+                const cords = [xcord, ycord+i];
                 cordinates.push(cords);
             } 
-        }else if(orientation=="vertical" ){
+        }else if(orientation == "vertical" ){
             for(let i=0;i<shipLength;i++){
-                const cords = [xcord + i-1, ycord-1];
+                const cords = [xcord+i, ycord];
                 cordinates.push(cords);
             } 
         }
-
+        // console.log(cordinates)
         return cordinates;
     }
 

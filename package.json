@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "Gameboard.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "watch": "jest --watch *.js"
