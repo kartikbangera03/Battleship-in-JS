@@ -36,7 +36,13 @@ export default class Player{
 
 
     checkShipsSunk(){
-        return this.gameBoard.allShipsSunk();
+        let allShipsSunkStatus = true;
+        this.fleet.forEach(eachShip=>{
+            if(eachShip.isSunk()===false){
+                allShipsSunkStatus = false;
+            }
+        });
+        return allShipsSunkStatus;
     }
 
 

@@ -158,23 +158,28 @@ export default class Gameboard{
     }
 
 
-    receiveAttack(cord){
+    receiveAttack(xcord, ycord){
 
         // Determines whether or not the attack hit a ship 
         // and then sends the hit function to the correct ship
         // OR records the cordinates of the missed shot
-        const xcord = cord[0];
-        const ycord = cord[1];
+        // const xcord = cord[0];
+        // const ycord = cord[1];
         let attackStatus = false;
-        const attackedSquare = this.gameBoard[xcord][ycord];
-        if( this.gameBoard[xcord][ycord].attacked == false 
-            && this.gameBoard[xcord][ycord].hasShip == true ){
-                this.gameBoard[xcord][ycord].ship.hit();
+        let message = "MISS";
+
+        if(this.gameBoard[xcord][ycord].attacked == false){
             attackStatus = true;
+            console.log("*****************");
+            if(this.gameBoard[xcord][ycord].hasShip == true ){
+                this.gameBoard[xcord][ycord].ship.hit();
+            }else{
+                console.log(message);
+            }
+            console.log("*****************");
+            this.gameBoard[xcord][ycord].attacked = true;
         }
-
-
-        this.gameBoard[xcord][ycord].attacked = true;
+        
         return attackStatus;
     }
 }

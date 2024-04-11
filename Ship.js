@@ -7,6 +7,7 @@ export default class ship {
     }
 
     hit(){
+        console.log("HIT !!!! "+this.name);
         this.hits++;
 
         if(this.isSunk()){
