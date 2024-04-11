@@ -83,7 +83,7 @@ export default class Gameboard{
         // console.log("CHECK PLACEMENT");
         if(this.checkFit(shipObj.length , xcord, ycord, orientation)){
             const shipCordinates = this.getCordinatesForShip(shipObj.length , xcord, ycord, orientation);
-            console.log(shipCordinates);
+            // console.log(shipCordinates);
             // console.log("SHIP FIT CHECKED");
             if(shipCordinates.length!=0 && this.cordinatesEmpty(shipCordinates)){
                 // console.log("SHIP CORDINATES EMPTY");
@@ -174,13 +174,13 @@ export default class Gameboard{
 
         if(this.gameBoard[xcord][ycord].attacked == false){
             attackStatus = true;
-            console.log("*****************");
+            // console.log("*****************");
             if(this.gameBoard[xcord][ycord].hasShip == true ){
                 this.gameBoard[xcord][ycord].ship.hit();
             }else{
                 console.log(message);
             }
-            console.log("*****************");
+            // console.log("*****************");
             this.gameBoard[xcord][ycord].attacked = true;
         }
         

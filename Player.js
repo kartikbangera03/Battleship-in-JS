@@ -74,7 +74,7 @@ export default class Player{
 
                 let xcord = Math.floor((Math.random() * 10)+1);
                 let ycord = Math.floor((Math.random() * 10)+1);
-                console.log([xcord,ycord]);
+                // console.log([xcord,ycord]);
                 let orientation = Math.floor(Math.random() * 2);
                 orientation = orientation==1 ? "horizontal" : "vertical";
 
@@ -90,13 +90,13 @@ export default class Player{
 
 
     placeShips(){
-        if(this.name!=="Computer"){
-            this.getShipInput();
-        }else{
-            console.log("Placing Ships for Computer");
-            this.getRandomShipInput()
-        }
-        
+        // if(this.name!=="Computer"){
+        //     this.getShipInput();
+        // }else{
+        //     console.log("Placing Ships for Computer");
+        //     this.getRandomShipInput()
+        // }
+        this.getRandomShipInput();
 
     }
 

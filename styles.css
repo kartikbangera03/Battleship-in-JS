@@ -19,14 +19,14 @@ button{
 .gridContainer{
     width: 30vw;
     height: 50vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     
 }
 
 .rightSquare, .leftSquare{
     width: 2.7vw;
     height: 4.5vh;
-    border: 1px solid black;
+    border: 1px solid grey;
     display: flex;
     justify-content: center;
     align-items: center;
