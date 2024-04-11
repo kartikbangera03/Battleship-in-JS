@@ -1,0 +1,46 @@
+button{
+    width: 50px;
+    height: 50px;
+}
+
+.container{
+    display: flex;
+    height: 95vh;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+.gridContainer{
+    width: 30vw;
+    height: 50vh;
+    border: 1px solid black;
+    
+}
+
+.rightSquare, .leftSquare{
+    width: 2.7vw;
+    height: 4.5vh;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shipSquare{
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    opacity: 0.3;
+}
+
+.rightContainer , .leftContainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 7px;
+    gap: 2px;
+}

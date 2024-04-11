@@ -30,6 +30,10 @@ export default class Gameboard{
     //     return this.shipsOnBoard;
     // }
 
+    getCordinate(xcord,ycord){
+        return this.gameBoard[xcord][ycord];
+    }
+
     setBoard(){
         for(let i=0;i<=10;i++){
             this.gameBoard[i] = [];

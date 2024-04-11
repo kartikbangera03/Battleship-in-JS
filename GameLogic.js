@@ -1,4 +1,6 @@
 import Player from "./Player.js";
+import domManip from "./domManip.js";
+
 
 const playerOne = new Player("Kartik");
 const playerTwo = new Player("Computer");
@@ -13,18 +15,19 @@ players[1] = playerTwo;
 
 
 console.log("Place Ships for " + playerOne.name);
-players[0].placeShips();
+// players[0].placeShips();
 
 console.log(players[0].printBoard());
 
 
 console.log("Place Ships for " + playerTwo.name);
-players[1].placeShips();
+// players[1].placeShips();
 console.log(players[1].printBoard());
 
+domManip(playerOne, playerTwo, playerTurn);
 
-// // console.log(playerOne);
-// // console.log(playerTwo);
+// console.log(playerOne);
+// console.log(playerTwo);
 
 let gameFlag = true;
 let playerTurn = 0;
@@ -48,9 +51,9 @@ while(gameFlag){
 }
 
 function showBoards(){
-    console.log(players[0].name + "'s Board ===============================");
+    console.log(players[0].name + "'s Board =====");
     console.log(players[0].printBoard());
-    console.log(players[1].name + "'s Board ===============================");
+    console.log(players[1].name + "'s Board =====");
     console.log(players[1].printBoard());
 }
 
@@ -69,3 +72,4 @@ function getInput(playerName){
     
     return [xcord,ycord];
 }
+
