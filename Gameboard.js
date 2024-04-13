@@ -19,7 +19,8 @@ export default class Gameboard {
                 this.gameBoard[i][j] = {
                     hasShip: false,
                     attacked: false,
-                    ship: null
+                    ship: null,
+                    symbol : ""
                 };
             }
         }
@@ -121,15 +122,20 @@ export default class Gameboard {
 
             if (this.gameBoard[xcord][ycord].hasShip == true) {
                 message = this.gameBoard[xcord][ycord].ship.hit();
+                // this.gameBoard[xcord][ycord].symbol = "&#x2715;" ; 
+                this.gameBoard[xcord][ycord].attacked = true;
+            }else{
+                // this.gameBoard[xcord][ycord].symbol = "&#x2299;" ;
+                this.gameBoard[xcord][ycord].attacked = true;
             }
 
-            this.gameBoard[xcord][ycord].attacked = true;
+            
+            // return true;
         }
 
-        const shipInfoSpan = document.querySelector("#squareInfo");
-        shipInfoSpan.textContent = message;
         console.log(message);
-
-        return attackStatus;
+        return message;
     }
+
+    
 }

@@ -45,7 +45,7 @@ export default class Player{
 
     receiveAttack(xcord,ycord){
 
-       this.gameBoard.receiveAttack(xcord,ycord);       
+       return this.gameBoard.receiveAttack(xcord,ycord);       
     }
 
 

@@ -9,6 +9,13 @@ body{
     font-size: 25px;
 }
 
+h1{
+    font-size: 4rem;
+    -webkit-text-stroke: 2px black;
+    color: white;
+    
+}
+
 button{
     width: 50px;
     height: 50px;
@@ -16,48 +23,86 @@ button{
 
 .container{
     display: flex;
-    height: 70vh;
+    height: 500px;
     justify-content: center;
     align-items: center;
-    gap: 2vw;
+    gap: 5px;
     /* border: 1px solid black; */
+
+    
 }
 
 .logo{
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* border: 1px solid black; */
+   
 }
 
+.resultInfo{
+
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+ 
+
+} 
+
+
+#winnerInfo{
+    font-size : 1.5rem; 
+}    
+
+
+
 .gridContainer{
-    width: 30vw;
-    height: 50vh;
+    width: 470px;
+    height: 470px;
     /* border: 1px solid black; */
-    
+    box-shadow: 3px 3px 5px lightgray;
+  
 }
 
 .rightSquare, .leftSquare{
-    width: 2.7vw;
-    height: 4.5vh;
+    /* width: 2.7vw;
+    height: 4.5vh; */
     border: 1px solid grey;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+
+.activeSquares:hover{
+    /* width: 2.7vw;
+    height: 4.5vh; */
+    background-color: lightgray;
+    opacity: 0.3;
+}
+
+
 .shipSquare{
     border: 1px solid darkblue;
     background-color: dodgerblue;
-    opacity: 0.7;
+    opacity: 0.3;
 }
 
 .rightContainer , .leftContainer {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     padding-left: 7px;
+    gap: 2px; */
+
+    display: grid;
     gap: 2px;
+    grid-template-columns: repeat(10, 45px);
+    grid-template-rows: repeat(10, 45px);
 }
 
-.inactiveBoard{
+.inactiveSquares{
     opacity: 0.3;
 }
 
@@ -66,6 +111,28 @@ button{
     justify-content: center;
     align-items: center;
     padding: 30px;
-    width: 150px;
+    width: 200px;
 }
 
+.attackedShipSquare{
+    border: 1px solid red;
+    background-color: red;
+    color: black;
+    opacity: 0.3;
+}
+
+.gameRules{
+    /* width: 1500px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+#gameRulesInfo{
+    font-size : 1rem; 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 60px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
