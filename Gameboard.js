@@ -70,7 +70,7 @@ export default class Gameboard{
                 let val = currentRow[j].hasShip ? currentRow[j].ship.name : " . ";
                 currentRowArray += val + "  ";
             }
-            console.table(currentRowArray);
+            // console.table(currentRowArray);
 
         }
     }

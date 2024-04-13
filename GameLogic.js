@@ -1,31 +1,33 @@
 import Player from "./Player.js";
-import domManip from "./domManip.js";
-
+import renderBothBoards from "./domManip.js";
 
 const playerOne = new Player("Kartik");
 const playerTwo = new Player("Computer");
 
 console.log("BattleShip - Milton Bradley Version");
-// console.log(playerOne);
-// console.log(playerTwo);
 
 const players = [];
 players[0] = playerOne;
 players[1] = playerTwo;
 
-
-console.log("Place Ships for " + playerOne.name);
+console.log("Ships Placed for " + playerOne.name);
 players[0].placeShips();
 
-// console.log(players[0].printBoard());
-
-
-console.log("Place Ships for " + playerTwo.name);
+console.log("Ships Placed for " + playerTwo.name);
 players[1].placeShips();
-// console.log(players[1].printBoard());
 
-// domManip(playerOne, playerTwo, playerTurn);
-domManip(playerOne, playerTwo, 0);
+let playerTurn = 0;
+setInterval(function(){
+    // console.log("Checking ");
+    if(players[0].turn === false &&  players[1].turn === false){
+        console.log("Both Turns False");
+        // players[playerTurn].turn = true;
+        renderBothBoards(players[0], players[1], playerTurn);
+        
+        playerTurn = playerTurn==1 ? 0 : 1 ;
+        console.log(playerTurn);
+    }
+},200)
 
 // console.log(playerOne);
 // console.log(playerTwo);
@@ -56,21 +58,5 @@ domManip(playerOne, playerTwo, 0);
 //     console.log(players[0].printBoard());
 //     console.log(players[1].name + "'s Board =====");
 //     console.log(players[1].printBoard());
-// }
-
-// function getInput(playerName){
-//     let xcord,ycord;
-//     if(playerName ==="Computer"){
-//         xcord  =  Math.floor((Math.random() * 10)+1);
-//         ycord  =  Math.floor((Math.random() * 10)+1);
-//         console.log("Computers Guess "+xcord+" "+ycord);
-
-//     }else{
-//         xcord  =  prompt("Enter X cordinate");
-//         ycord  =  prompt("Enter Y cordinate");
-
-//     }
-    
-//     return [xcord,ycord];
 // }
 

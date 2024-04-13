@@ -33,9 +33,9 @@ button{
 }
 
 .shipSquare{
-    border: 1px solid dodgerblue;
+    border: 1px solid darkblue;
     background-color: dodgerblue;
-    opacity: 0.3;
+    opacity: 0.7;
 }
 
 .rightContainer , .leftContainer {

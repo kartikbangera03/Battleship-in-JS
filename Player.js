@@ -8,6 +8,9 @@ export default class Player{
     constructor(name){
         this.name = name;
         this.gameBoard = new GameBoard();
+        this.fleet = [];
+        this.turn  = false;
+
 
         const carrier = new Ship("Carrier",5);
         const battleship = new Ship("Battleship",4);
@@ -15,7 +18,7 @@ export default class Player{
         const submarine = new Ship("Submarine",3);
         const destroyer = new Ship("Destroyer",2);
 
-        this.fleet = [];
+        
         this.fleet.push(carrier);
         this.fleet.push(battleship);
         this.fleet.push(cruiser);
@@ -25,13 +28,24 @@ export default class Player{
     }    
     
 
+    changeTurn(){
+        if(this.turn){
+            this.turn = false;
+        }else{
+            this.turn = true;
+        }
+
+        // console.log("Changed " + this.name + " Turn to "+this.turn);
+    }
+
     getBoard(){
         return this.gameBoard.getBoard();
     }
 
 
     receiveAttack(xcord,ycord){
-       return this.gameBoard.receiveAttack(xcord,ycord);
+
+       this.gameBoard.receiveAttack(xcord,ycord);       
     }
 
 
