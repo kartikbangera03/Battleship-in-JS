@@ -1,3 +1,14 @@
+body{
+    /* border: 1px solid blue; */
+    padding: 0;
+    margin: 0;
+    height: 99vh;
+    overflow: hidden;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+}
+
 button{
     width: 50px;
     height: 50px;
@@ -5,10 +16,11 @@ button{
 
 .container{
     display: flex;
-    height: 95vh;
+    height: 70vh;
     justify-content: center;
     align-items: center;
-    gap: 10vw;
+    gap: 2vw;
+    /* border: 1px solid black; */
 }
 
 .logo{
@@ -44,3 +56,16 @@ button{
     padding-left: 7px;
     gap: 2px;
 }
+
+.inactiveBoard{
+    opacity: 0.3;
+}
+
+.gameInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 150px;
+}
+

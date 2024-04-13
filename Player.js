@@ -82,22 +82,14 @@ export default class Player{
 
     getRandomShipInput(){
         this.fleet.forEach(eachShip=>{
-            
             let flag = true;
             while(flag){
-
                 let xcord = Math.floor((Math.random() * 10)+1);
                 let ycord = Math.floor((Math.random() * 10)+1);
-                // console.log([xcord,ycord]);
                 let orientation = Math.floor(Math.random() * 2);
                 orientation = orientation==1 ? "horizontal" : "vertical";
-
-                // let cordinates = prompt("Enter Cordinates for "+eachShip.name+ " "+eachShip.length+" squares. 1 for Horizontal and 2 for Vertical");
-                // const cordinateValues  = cordinates.split(" ");
-                // cordinateValues[2] = cordinateValues[2]==1 ? "horizontal" : "vertical";
                 if(this.gameBoard.placeShipOnGameBoard(eachShip, xcord, ycord, orientation)) flag = false;
             }
-            
         });
     }
 

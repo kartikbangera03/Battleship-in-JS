@@ -7,13 +7,14 @@ export default class ship {
     }
 
     hit(){
-        console.log("HIT !!!! "+this.name);
+        let message ;
+        message = "HIT !!!! "+this.name;
         this.hits++;
 
         if(this.isSunk()){
-            console.log(this.name+" ship has sunk");
+            message += " ship has sunk";
         }
-        return this.hits;
+        return message;
     }
 
 
